@@ -18,7 +18,7 @@
                 return alert("아이디를 입력하세요");
             }
             try{
-                // post 방식으로 서버에 요청
+                // post 방식으로 서버에 요청   key : value 형태
                 await axios.post('/user', {userid:e.target.userid.value});
             }catch(err){
 
