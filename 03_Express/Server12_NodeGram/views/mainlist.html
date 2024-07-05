@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="/css/gram.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-wrap">
+            <div class="profile">
+                    <div class="field">
+                        <label><span id="nickname"></span> 님 안녕하세요</label>
+                    </div>
+                    <div class="field" >
+                        <div style="flex:1; font-weight:bold; text-align: center;">팔로워<br />
+                            
+                        </div>
+                        <div style="flex:1; font-weight:bold;  text-align: center;">팔로잉<br />
+                            
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <input type="button" value="회원정보상세" onClick="location.href='/user/userdetail'">
+                        <input type="button" value="로그아웃" onClick="location.href='/user/logout'">
+                        <input type="button" value="피드작성" onClick="location.href='/feed/feedWriteForm'">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="feedlist"></div>
+
+
+    <script type="text/javascript">
+        getLoginUser();
+        getFeedList();
+
+        async function getLoginUser(){
+            try{
+                const result = await axios.get('/user/getLoginUser');
+                const loginUser = result.data;
+                document.getElementById('nickname').innerHTML = loginUser.nickname;
+            }catch(err){
+                console.log(err);
+            }
+        }
+
+        async function getFeedList(){
+            try{
+
+            }catch(err){
+
+            }
+        }
+
+    </script>
+    
+
+</body>
+</html>
